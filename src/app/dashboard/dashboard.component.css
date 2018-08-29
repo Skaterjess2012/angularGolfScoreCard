@@ -1,0 +1,22 @@
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+th {
+    font-size: 0.7em;
+    background: cornflowerblue;
+}
+td {
+    background: green;
+}
+.inputContainer {
+    width: 100%;
+    border: none;
+    background-color: purple;
+}
+input {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}

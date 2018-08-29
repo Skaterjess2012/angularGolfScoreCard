@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-
+import { CoursesService } from './services/courses.service';
+import { TeeDataService } from './services/tee-data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -10,21 +11,24 @@ import { HttpClient } from '@angular/common/http';
 export class AppComponent {
   title = 'angularGolfScoreCard';
   coursesListArray = [];
-  courseListUrl = 'https://uxcobra.com/golfapi/courses.txt';
+  pCount: number;
 
-  constructor(private http: HttpClient) {
-    this.setCourseList();
-  }
-  getConfig(url) {
-    return this.http.get(url);
-  }
-  setCourseList() {
-   const stuff = this.http.get(this.courseListUrl)
-    .subscribe((data) => {
-      const courses = data.courses;
-      courses.forEach(course => {
-        this.coursesListArray.push(course);
-      });
+  constructor(private cs: CoursesService, private tees: TeeDataService, private router: Router) {
+    cs.getCourseData().subscribe((data) => {
+      const d = data.courses;
+      this.coursesListArray = d;
     });
+  }
+
+  setActiveCourse(activeCourse) {
+    this.tees.setTeeData(activeCourse.id);
+  }
+  submit() {
+    if (this.tees.teeData !== undefined) {
+      this.tees.playerCount = this.pCount;
+      this.router.navigate(['dashboard']);
+    } else {
+      alert('Please fill in all fields!');
+    }
   }
 }

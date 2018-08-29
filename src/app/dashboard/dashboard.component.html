@@ -1,0 +1,19 @@
+<mat-card>
+    <table>
+        <tr>
+          <th>Players</th>
+          <th *ngFor="let hole of holesArray">
+            <p>{{hole.hole}}</p>
+            <p>{{hole.teeBoxes[0].yards}}YRD</p>
+          </th>
+        </tr>
+        <tr *ngFor="let player of players">
+          <th>{{player.name}}</th>
+          <td *ngFor="let hole of holesArray">
+            <div class="inputContainer">
+                <input matInput type="text">
+            </div>
+          </td>
+        </tr>
+      </table>
+</mat-card>
