@@ -6,13 +6,13 @@
             <p>{{hole.hole}}</p>
             <p>{{hole.teeBoxes[0].yards}}YRD</p>
           </th>
+          <th>Input</th>
+          <th>Output</th>
         </tr>
-        <tr *ngFor="let player of players">
+        <tr *ngFor="let player of players; let x = index" class="players">
           <th>{{player.name}}</th>
-          <td *ngFor="let hole of holesArray">
-            <div class="inputContainer">
-                <input matInput type="text">
-            </div>
+          <td *ngFor="let hole of holesArray; let i = index">
+              <input matInput type="text">
           </td>
         </tr>
       </table>

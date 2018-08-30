@@ -7,6 +7,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MatSelectModule, MatFormFieldModule, MatTableModule, MatButtonModule, MatCardModule, MatInputModule} from '@angular/material';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -25,6 +26,7 @@ import { FormsModule } from '@angular/forms';
     MatCardModule,
     MatInputModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ],
   providers: [],
