@@ -9,9 +9,9 @@
           <th>Input</th>
           <th>Output</th>
         </tr>
-        <tr *ngFor="let player of players; let x = index" class="players">
+        <tr *ngFor="let player of players; let y = index" class="players">
           <th>{{player.name}}</th>
-          <td *ngFor="let hole of holesArray; let i = index">
+          <td *ngFor="let hole of holesArray; let x = index">
               <input matInput type="text">
           </td>
         </tr>
